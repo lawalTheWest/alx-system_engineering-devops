@@ -1,3 +1,2 @@
 #!/bin/bash
-current_directory=$(pwd)
-echo "absolute working directory is: $current_directory"
+echo "absolute working directory is: $current_directory=$(pwd)"
