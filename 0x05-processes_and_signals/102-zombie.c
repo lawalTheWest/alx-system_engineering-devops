@@ -2,9 +2,11 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/types.h>
-/**
- */
 
+/**
+ * infinite_while - Entry poiint to an infinite loop
+ * Return: 0
+ */
 int infinite_while(void)
 {
 	while (1)
@@ -16,6 +18,8 @@ int infinite_while(void)
 
 
 /**
+ * main - Entry point
+ * Return: EXIT_SUCCESS / 0
  */
 int main(void)
 {
