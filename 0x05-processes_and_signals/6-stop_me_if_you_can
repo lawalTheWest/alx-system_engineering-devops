@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# stop me if you can is a script that will terminate the process printing indefinitely "To infinity and beyond"
+
+pkill -f "4-to_infinity_and_beyond"
