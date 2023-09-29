@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# This kills the previous task that prints "To infinity and beyod" Indefinitely
+# File_name: 4-to_infinity_and_beyond
+
+kill "$(pgrep -f 4-to_infinity_and_beyond)"
