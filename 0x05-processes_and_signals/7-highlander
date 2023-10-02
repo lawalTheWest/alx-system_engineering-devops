@@ -2,13 +2,13 @@
 # This script displays "To infinity and beyond" indefinitely with a sleep 2 in between each iteration.
 #   It then Displays "I am invincible!!!" in between each iteration.
 
-i=0
+# i=0
 while true; do
 	echo "To infinity and beyond"
-	i=$((i+1))
+	# i=$((i+1))
 	sleep 2
-	if [ $i -eq 2 ]; then
-		echo "I am Invincible"
-		i=$((i=0))
-	fi
+	# if [ $i -eq 2 ]; then
+	trap "I am Invincible" SIGTERM
+		#i=$((i=0))
+	# fi
 done
