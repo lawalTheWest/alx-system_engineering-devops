@@ -2,13 +2,25 @@
 # This script displays "To infinity and beyond" indefinitely with a sleep 2 in between each iteration.
 #   It then Displays "I am invincible!!!" in between each iteration.
 
-# i=0
+trap 'echo "I am invincible!!!"; trap SIGINT; return' SIGTERM
+print_message="To infinity and beyond"
+
+i=0
+j=0
 while true; do
-	echo "To infinity and beyond"
-	# i=$((i+1))
+	echo "$print_message"
 	sleep 2
-	# if [ $i -eq 2 ]; then
-	trap "I am Invincible" SIGTERM
-		#i=$((i=0))
-	# fi
+	if [ "$print_message" == "To infinity and beyond" ]; then
+	       i=$((i+1))
+	       if [ $i -eq 2 ]; then
+		       print_message="I am invincible!!!"
+		       i=0
+	       fi
+		if [ $i -eq 2 ]; then
+			# increment j
+			j=$((j+1))
+		fi
+	else
+		print_message="To infinity and beyond"
+	fi
 done
