@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 # transfers a file from a client to a server with scp
 
+# Usage: ./0-transfer_file some_page.html 54.157.142.218 ubuntu ~/.ssh/school'
+
 # Validate the arguments ($#) if it is less than 3
 if [ "$#" -lt 3 ]; then
 	# we peint a usage message to the stdOut
