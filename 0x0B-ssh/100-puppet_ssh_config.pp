@@ -1,5 +1,7 @@
 # this puppet file configures to connect server without password
 
+include stdlib
+
 file_line { 'PasswordAuthentication':
   ensure => 'present',
   path   => '/etc/ssh/ssh_config',
