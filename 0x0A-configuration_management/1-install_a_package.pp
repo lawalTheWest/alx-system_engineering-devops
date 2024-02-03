@@ -23,8 +23,9 @@ package { 'Flask':
 }
 
 # I am specifying the version of werkzeug to match the flask version installed.
-# package { 'Werkzeug':
-#   ensure   => '2.0.3',
-#   provider => 'pip3',
-#   require  => [Package['python3'], Package['python3-pip']],
-# }
+package { 'Werkzeug':
+  # ensure   => '2.0.3',
+  ensure   => '2.1.1',
+  provider => 'pip3',
+  require  => [Package['python3'], Package['python3-pip']],
+}
