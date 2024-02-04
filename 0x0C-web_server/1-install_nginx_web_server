@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# this bash script installs and configures Nginx on a remote server
+
+apt-get -y update
+apt-get -y install nginx
+# Allow traffic through an uncomplicated firewall
+ufw allow 'Nginx HTTP'
+# the default landing page for Nginx on Debian-based systems.
+# is located in the path '/var/www/html/index.nginx-debian.html'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+service nginx start
