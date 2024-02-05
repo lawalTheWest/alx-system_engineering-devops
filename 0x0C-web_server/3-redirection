@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+# this bash script installs and configures Nginx on a remote server
+
+apt-get -y update
+apt-get -y install nginx
+# Allow traffic through an uncomplicated firewall
+sudo ufw allow 'Nginx HTTP'
+# create the directorry `html`
+mkdir -p /var/www/html/
+# The file permission is adjusted to 755 making it owner=rwx; group=rx; others=rx
+sudo chmod -R 755 /var/www/
+# the default landing page for Nginx on Debian-based systems.
+# is located in the path '/var/www/html/index.nginx-debian.html'
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
+# server configuration (Nginx server) so that  `/redirect_me` is redirecting to another page
+SERVER_CONFIG=\
+"server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        root /var/www/html;
+        index index.html index.htm index.nginx-debian.html;
+        server_name _;
+        location / {
+                try_files \$uri \$uri/ =404;
+        }
+        if (\$request_filename ~ redirect_me){
+                rewrite ^ https://sketchfab.com/bluepeno/models permanent;
+        }
+}"
+# The server configured to the default Nginx sites-enabled file
+bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+# Checkk if Nginx is already runninng; start if not, restart if running..
+if [ "$(pgrep -c nginx)" -le 0 ]; then
+        service nginx start
+else
+        service nginx restart
+fi
