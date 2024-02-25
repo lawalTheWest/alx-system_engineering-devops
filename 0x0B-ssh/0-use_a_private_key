@@ -1,4 +1,0 @@
-#!/usr/bin/env bash
-# this script uses ssh to connect to server (intranet)
-
-ssh -i ~/.ssh/school ubuntu@54.157.142.218

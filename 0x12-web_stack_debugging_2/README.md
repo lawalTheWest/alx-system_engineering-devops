@@ -1,3 +1,0 @@
-# Web Stack debugging
-
----
