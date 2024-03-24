@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script uses SSH to connect to a server using a private key ~/.ssh/school
+
+# the -v option to enable verbose output.
+# This will provide more detailed information
+# about the authentication process and may help identify the issue
+
+# The -i flag is used to specify the identity (private key) file
+ssh -v -i ~/.ssh/school ubuntu@54.164.113.23
