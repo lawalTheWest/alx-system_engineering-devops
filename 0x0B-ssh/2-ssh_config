@@ -1,0 +1,4 @@
+Host 54.164.113.23
+        HostName 54.164.113.23
+        IdentityFile ~/.ssh/school
+        passwordAuthentication no
