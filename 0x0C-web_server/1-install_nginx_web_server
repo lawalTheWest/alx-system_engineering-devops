@@ -10,5 +10,5 @@ ufw allow 'Nginx HTTP'
 # printing it to the file 'index.nginx-debian.html'
 # the default location for the default page of the Nginx web
 # server on Debian-based systems
-echo 'Hello World' > /var/www/html/index.nginx-debian.html
+echo 'Hello World!' > /var/www/html/index.nginx-debian.html
 service nginx start
