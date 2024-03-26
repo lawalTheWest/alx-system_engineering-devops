@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+# This installs the nginx server and configures it on the remote server
+# updating
+apt-get -y update
+# Installing nginx
+apt-get -y install nginx
+# Uncomplicated Firewall (UFW) configuration.
+# allowing connection on a specific port associated with the Nginx HTTP server
+ufw allow 'Nginx HTTP'
+# printing it to the file 'index.nginx-debian.html'
+# the default location for the default page of the Nginx web
+# server on Debian-based systems
+echo 'Hello World' > /var/www/html/index.nginx-debian.html
+service nginx start
