@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Sets up a new error page 404
+# This installs the nginx server and configures it on the remote server
+# updating
+apt-get -y update
+# Installing nginx
+apt-get -y install nginx
+# Uncomplicated Firewall (UFW) configuration.
+# allowing connection on a specific port associated with the Nginx HTTP server
+ufw allow 'Nginx HTTP'
+# printing it to the file 'index.nginx-debian.html'
+# the default location for the default page of the Nginx web
+# server on Debian-based systems
+echo 'Hello World!' > index.html
+mv index.html /var/www/html/
+
+# creating the file and writing to it
+echo "Ceci n'est pas une page" > 404.html
+mv 404.html /var/www/html/
+
+# default confihguration
+echo "server {
+	listen 80 default_server;
+	listen[::]:80 default_server;
+
+	root /var/www/html/;
+	index index.html;
+	location /redirect_me {
+		return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+	}
+	error_page 404 /404.html;
+	location = /404.html{
+		internal;
+	}
+}
+" > default
+mv -f default /etc/nginx/sites-available/default
+service nginx start
