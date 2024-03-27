@@ -20,7 +20,7 @@ echo 'Hello World!' > /var/www/html/index.html
 # defining location blocks, and
 # adding a redirection rule.
 # More explanation in the documentation
-SERVICE_CONFIG=\
+SERVER_CONFIG=\
 "server {
 	listen 80 default_server;
 	listen [::]:80 default_server;
