@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# configures the server web-02 like server web-01
+
+# updates the packages
+sudo apt update -y
+# Upgrades the packages
+sudo apt upgrade -y
+# installs nginx
+sudo apt install nginx -y
+sed -i '/listen 80 default_server/i add_header X-Served-By $HOSTNAME;' /etc/nginx/sites-available/default
+sudo service nginx restart
