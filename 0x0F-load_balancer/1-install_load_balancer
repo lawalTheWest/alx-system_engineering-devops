@@ -23,7 +23,6 @@ frontend $DOMAIN_NAME-frontend
         default_backend $DOMAIN_NAME-backend
 #--$DOMAIN_NAME-params-end--
 "
-
 [ -f "$INIT_FILE" ] || touch "$INIT_FILE"
 [ -f "$CONFIG_FILE" ] || touch "$CONFIG_FILE"
 
