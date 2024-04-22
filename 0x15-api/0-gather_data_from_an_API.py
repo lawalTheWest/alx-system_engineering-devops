@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 '''
-    this script returns to-do list information for a given employee ID.
+    Returns to-do list information for a given employee ID.
 '''
 import requests
 import sys
@@ -8,33 +8,33 @@ import sys
 
 def tasks_done(id):
     '''
-        Script that displays an employee's completed TODO tasks in stout
+        This displays an employee completed TODO tasks in stout
         Parameters:
             employee_id: Is an interger representing an employee id.
     '''
 
     url = 'https://jsonplaceholder.typicode.com/users/{}'.format(id)
     response = requests.get(url)
-    responseJson = response.json()
-    employeeName = response_json.get('name')
+    response_json = response.json()
+    employee_name = response_json.get('name')
 
     url = 'https://jsonplaceholder.typicode.com/users/{}/todos'.format(id)
     todos = requests.get(url)
-    todosJson = todos.json()
-    numberTasks = len(todosJson)
+    todos_json = todos.json()
+    number_tasks = len(todos_json)
 
-    taskCompleted = 0
-    taskList = ''
+    task_compleated = 0
+    task_list = ''
 
-    for task in todosJson:
+    for task in todos_json:
         if task.get('completed') is True:
-            taskCompleted += 1
-            taskList += '\t ' + task.get('title') + "\n"
+            task_compleated += 1
+            task_list += '\t ' + task.get('title') + '\n'
 
-    print('Employee {} is done with tasks({}/{}):'.format(employeeName,
-                                                          taskCompleted,
-                                                          numberTasks))
-    print(taskList[:-1])
+    print('Employee {} is done with tasks({}/{}):'.format(employee_name,
+                                                          task_compleated,
+                                                          number_tasks))
+    print(task_list[:-1])
 
 
 if __name__ == '__main__':
